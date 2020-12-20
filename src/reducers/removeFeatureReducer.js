@@ -15,9 +15,9 @@ const initialState = {
   ]
 };
 
-export const removeFeature = (state = initialState, action) => {
+export const removeFeatureReducer = (state = initialState, action) => {
   switch (action.type) {
     case "REMOVE_FEATURE":
-      
+
   }
 }

@@ -3,7 +3,7 @@ import { addFeatureReducer } from './addFeatureReducer'
 import { removeFeatureReducer } from './removeFeatureReducer'
 
 
-export const rootReducer = combineReducer({
+export const rootReducer = combineReducers({
     addFeature: addFeatureReducer,
     removeFeature: removeFeatureReducer
 })
