@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { addFeature } from './actions/addFeatureActions'
 import { removeFeature } from './actions/removeFeatureAction'
@@ -9,9 +9,13 @@ import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
 const App = (props) => {
+  const [newFeature, setNewFeature] = useState('');
 
   //Change handler?
-
+  const handleChanges = e => {
+    setNewFeature(e.target.value)
+  }
+  
   return (
     <div className="boxes">
       <div className="box">
@@ -27,8 +31,15 @@ const App = (props) => {
 };
 
 //mapStateToProps?
+const mapStateToProps = state => {
+  return {
+    additionalPrice: state.additionalPrice,
+    car: state.car,
+    additionalFeatures: state.additionalFeatures
+  };
+};
 
 //mapDispatchToProps?
 
 //add connect here
-export default App;
+export default connect(mapStateToProps)(App);
