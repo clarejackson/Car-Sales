@@ -10,15 +10,6 @@ import Total from './components/Total';
 
 const App = (props) => {
   console.log(props)
-  const removeFeature = item => {
-    console.log("remove", item);
-    props.removeFeature(item)
-  };
-
-  const addFeature = item => {
-    console.log("add", item);
-    props.addFeature(item)
-  };
 
   return (
     <div className="boxes">
@@ -27,7 +18,7 @@ const App = (props) => {
         <AddedFeatures car={props.car} removeFeature={removeFeature} />
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={props.additionalFeatures} addFeature={addFeature} />
+        <AdditionalFeatures additionalFeatures={props.additionalFeatures} addFeature={props.addFeature} />
         <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
@@ -36,15 +27,15 @@ const App = (props) => {
 
 //mapStateToProps?
 const mapStateToProps = state => {
-  console.log(state.addFeature)
+  console.log(state)
   return {
-    additionalPrice: state.addFeature.additionalPrice,
-    car: state.addFeature.car,
-    additionalFeatures: state.addFeature.additionalFeatures
+    additionalPrice: state.additionalPrice,
+    car: state.car,
+    additionalFeatures: state.additionalFeatures
   };
 };
 
 //mapDispatchToProps?
 
 //add connect here
-export default connect(mapStateToProps, { addFeature, removeFeature })(App);
+export default connect(mapStateToProps, {addFeature})(App);
