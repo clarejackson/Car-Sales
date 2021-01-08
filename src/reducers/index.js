@@ -7,3 +7,4 @@ export const rootReducer = combineReducers({
     addFeature: addFeatureReducer,
     removeFeature: removeFeatureReducer
 })
+
